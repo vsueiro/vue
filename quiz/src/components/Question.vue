@@ -4,8 +4,9 @@
     <Alternative
       v-for="(alternative, index) in alternatives"
       :key="index"
-      :index="index"
-      :correct="correctIndex"
+      :correct="index === correctIndex"
+      :disabled="alternativeClicked"
+      @click="handleClick"
     >
       {{ alternative }}
     </Alternative>
@@ -13,6 +14,7 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import Alternative from './Alternative.vue'
 
 const props = defineProps({
@@ -20,6 +22,12 @@ const props = defineProps({
   alternatives: Array,
   correctIndex: Number
 })
+
+const alternativeClicked = ref(false)
+
+const handleClick = () => {
+  alternativeClicked.value = true
+}
 </script>
 
 <style scoped></style>

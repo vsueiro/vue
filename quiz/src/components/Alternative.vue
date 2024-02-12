@@ -3,7 +3,7 @@
     @click="handleClick"
     :class="{
       clicked: clicked,
-      correct: isCorrect
+      correct: correct
     }"
   >
     <slot></slot>
@@ -13,13 +13,11 @@
 <script setup>
 import { ref } from 'vue'
 
-const props = defineProps({
-  index: Number,
-  correct: Number
-})
-
 const clicked = ref(false)
-const isCorrect = props.index === props.correct
+const props = defineProps({
+  clicked: Boolean,
+  correct: Boolean
+})
 
 const handleClick = () => {
   clicked.value = true
