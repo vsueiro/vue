@@ -15,11 +15,16 @@
       :alternatives="['State management library', 'Database', 'CSS preprocessor']"
       :correctIndex="0"
     ></Question>
+
+    <p>Score: {{ store.score }}</p>
   </div>
 </template>
 
 <script setup>
 import Question from './components/Question.vue'
+import { useQuizStore } from './store'
+
+const store = useQuizStore()
 </script>
 
 <style></style>

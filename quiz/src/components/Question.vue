@@ -6,7 +6,7 @@
       :key="index"
       :correct="index === correctIndex"
       :disabled="alternativeClicked"
-      @click="handleClick"
+      @click="handleClick(index)"
     >
       {{ alternative }}
     </Alternative>
@@ -15,6 +15,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useQuizStore } from '../store'
 import Alternative from './Alternative.vue'
 
 const props = defineProps({
@@ -24,9 +25,13 @@ const props = defineProps({
 })
 
 const alternativeClicked = ref(false)
+const store = useQuizStore()
 
-const handleClick = () => {
+const handleClick = (index) => {
   alternativeClicked.value = true
+  if (index === props.correctIndex) {
+    store.incrementScore()
+  }
 }
 </script>
 
