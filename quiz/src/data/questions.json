@@ -1,0 +1,17 @@
+[
+  {
+    "title": "What is Vue.js?",
+    "alternatives": ["JavaScript framework", "CSS framework", "HTML preprocessor"],
+    "correctIndex": 0
+  },
+  {
+    "title": "Who created Vue.js?",
+    "alternatives": ["Dan Abramov", "Tim Berners-Lee", "Evan You"],
+    "correctIndex": 2
+  },
+  {
+    "title": "What is Pinia?",
+    "alternatives": ["Relational database", "State management library", "CSS preprocessor"],
+    "correctIndex": 1
+  }
+]
